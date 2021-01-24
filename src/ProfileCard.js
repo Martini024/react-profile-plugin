@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from "react";
+import { Card } from "antd";
+import DOMPurify from "dompurify";
+import React from "react";
 
-function Profile() {
-	this.name = "";
-	this.avatar = "";
-	this.description = "";
-}
+const { Meta } = Card;
 
-export const ProfileCard = () => {
-	const [profile, serProfile] = useState(new Profile());
-
-	useEffect(() => {
-		console.log("fetchProfileFromApi: No data exist yet");
-	}, []);
-
-	return <div></div>;
+export const ProfileCard = ({ profile }) => {
+	console.log(profile);
+	return (
+		<div>
+			{profile.name !== "" ? (
+				<Card
+					hoverable
+					style={{ width: 240 }}
+					cover={<img alt="example" src={profile.avatar} />}
+				>
+					<Meta
+						title={profile.name}
+						description={
+							<div
+								dangerouslySetInnerHTML={{
+									__html: DOMPurify.sanitize(profile.description),
+								}}
+							></div>
+						}
+					/>
+				</Card>
+			) : null}
+		</div>
+	);
 };
