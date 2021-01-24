@@ -20,12 +20,6 @@ const formTailLayout = {
 	wrapperCol: { span: 18, offset: 6 },
 };
 
-function Profile() {
-	this.name = "";
-	this.avatar = "";
-	this.description = "";
-}
-
 function App() {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [profile, setProfile] = useState({

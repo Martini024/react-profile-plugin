@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+## React-Profile-Plugin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The problem this plugin try to solve is in ./doc/Coding Test ReactJS_JAN 2021.pdf, the following section will share my thoughts and explain my solution.
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+Run following command will restore project dependencies and start the app in the development mode
 
-### `yarn start`
+    yarn install
+    yarn start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Solution
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The wizard for creating profile can be built by a form component which accepts user input, description field can use a rich-text editor which allows formatting text. After use submitted the profile, data will be persisted in database with description field stored in html/markdown/file format.
 
-### `yarn test`
+Inside mobile application webview, initially when we load the page, component will fetch profile data through API, if there's no existing one, will display a empty hidden profile card component, otherwise, a profile card containing the avatar and name will shown, and just like a normal component, can be clicked and popup a modal displaying more details like description field. Through innerHtml insertion, rich-text format description can be parse and displayed on the screen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Remarks
 
-### `yarn build`
+The plugin is prototyped by ant design, using basic form component and grid system to briefly illustrate the solution.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The wysiwyg editor used is CKEditor5, inside **Bonus 1** text alignment and formatting can be easily implemented by selecting a combination of the plugins CKEditor provided. Cropping photo can also be done by various image processing tools on the market. But placement of the photo will require different solutions according to the requirement.
